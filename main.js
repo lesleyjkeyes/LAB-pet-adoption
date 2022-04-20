@@ -210,3 +210,27 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+
+  pets.forEach((item, index)=>{
+    item.id = index+1;
+   });
+   console.log(pets);
+
+
+const listPets = document.querySelector("#listPets");
+
+let domString = "";
+for (const petList of pets) {
+
+  domString += `<div class="card" style="width: 18rem;">
+  <img src="${petList.imageUrl}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">${petList.name}</p>
+    <p class="card-text">${petList.color}</p>
+    <p class="card-text">${petList.specialSkill}</p>
+    <p class="card-text">${petList.type}</p>
+  </div>
+</div>`;
+}
+
+listPets.innerHTML = domString
