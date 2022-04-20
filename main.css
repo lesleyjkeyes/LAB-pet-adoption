@@ -1,0 +1,32 @@
+body{
+  background-color: lightcoral;
+}
+
+.cardContainer {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px;
+  justify-content: center;
+}
+
+.card {
+  margin: 20px;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#dog-button {
+  background-color: lightyellow;
+}
+
+#cat-button {
+  background-color: yellow;
+}
+
+#dino-button {
+  background-color: orange;
+}
