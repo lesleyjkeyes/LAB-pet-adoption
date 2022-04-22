@@ -217,7 +217,7 @@ const pets = [
    console.log(pets);
 
 
-const listPets = document.querySelector("#listPets");
+let listPets = document.querySelector("#listPets");
 
 let domString = "";
 for (const petList of pets) {
@@ -233,4 +233,24 @@ for (const petList of pets) {
 </div>`;
 }
 
-listPets.innerHTML = domString
+listPets.innerHTML = domString 
+
+
+const dogFilter = document.querySelector('#dog-button');
+dogFilter.addEventListener('click', () => {
+  filter(pets, "dog");
+  console.log(dogArray);
+  dogArray.innerHTML = domString;
+});
+
+const dogArray = [];
+const filter = (array, type) => {
+
+  array.forEach((item) => {
+    if (item.type === type) {
+      dogArray.push(item);
+    }
+  });
+
+return dogArray;
+}
