@@ -216,41 +216,50 @@ const pets = [
    });
    console.log(pets);
 
+  const renderToDom = (divId, textToRender) => {
+    const selectedElement = document.querySelector(divId);
+    selectedElement.innerHTML = textToRender;
+  }
 
-let listPets = document.querySelector("#listPets");
+  const cardsOnDom = (array) => {
+    let domString = '';
+    for (const item of array) {
+      domString += `<div class="card" style="width: 18rem;">
+      <img src="${item.imageUrl}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${item.name}</h5>
+        <p class="card-text">${item.color}</p>
+        <p class="card-text">${item.specialSkill}</p>
+        <p class="card-text">${item.type}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>`
+    renderToDom('#cardContainer', domString);
+    }};
 
-let domString = "";
-for (const petList of pets) {
+const eventListeners = () => {
 
-  domString += `<div class="card" style="width: 18rem;">
-  <img src="${petList.imageUrl}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">${petList.name}</p>
-    <p class="card-text">${petList.color}</p>
-    <p class="card-text">${petList.specialSkill}</p>
-    <p class="card-text">${petList.type}</p>
-  </div>
-</div>`;
-}
-
-listPets.innerHTML = domString 
-
-
-const dogFilter = document.querySelector('#dog-button');
-dogFilter.addEventListener('click', () => {
-  filter(pets, "dog");
-  console.log(dogArray);
-  dogArray.innerHTML = domString;
-});
-
-const dogArray = [];
-const filter = (array, type) => {
-
-  array.forEach((item) => {
-    if (item.type === type) {
-      dogArray.push(item);
+  document.querySelector('#top-buttons').addEventListener('click', (e) => {
+    if (e.target.id === "all-button") {
+      cardsOnDom(pets);
+    } else if (e.target.id === "dog-button") {
+      const dogFilter = pets.filter(doggo => doggo.type === "dog");
+      cardsOnDom(dogFilter);
+    } else if (e.target.id === "cat-button") {
+      const catFilter = pets.filter(kitty => kitty.type === "cat");
+      cardsOnDom(catFilter);
+    } else if (e.target.id === "dino-button") {
+      const dinoFilter = pets.filter(dinosaur => dinosaur.type === "dino");
+      cardsOnDom(dinoFilter);
     }
-  });
-
-return dogArray;
+  })
 }
+
+
+
+  const startApp = () => {
+    cardsOnDom(pets);
+    eventListeners();
+  };
+
+  startApp();

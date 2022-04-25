@@ -2,7 +2,7 @@ body{
   background-color: lightcoral;
 }
 
-.cardContainer {
+#cardContainer {
   display: flex;
   flex-flow: row wrap;
   padding: 20px;
@@ -13,7 +13,7 @@ body{
   margin: 20px;
 }
 
-.top-buttons {
+#top-buttons {
   display: flex;
   justify-content: center;
   margin-top: 20px;
