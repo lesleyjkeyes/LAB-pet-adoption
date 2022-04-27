@@ -9,7 +9,21 @@ body{
   justify-content: center;
 }
 
+.card-img-top {
+justify-content: center;
+float: left;
+width:  200px;
+height: 200px;
+object-fit: cover;
+}
+
+#addNewPetContainer {
+  padding: 1rem;
+}
+  
+
 .card {
+  align-items: center;
   margin: 20px;
 }
 
@@ -20,17 +34,21 @@ body{
 }
 
 #dog-button {
-  background-color: lightyellow;
+  background-color: orange;
+  margin: 10px;
 }
 
 #cat-button {
-  background-color: yellow;
+  background-color: orange;
+  margin: 10px;
 }
 
 #dino-button {
   background-color: orange;
+  margin: 10px;
 }
 
 #all-button {
   background-color: rgb(221, 119, 78);
+  margin: 10px
 }
